@@ -8,6 +8,9 @@ services:
     environment:
       STAGE: TEST
       TRIP_TO_CARBON_URL: https://api.triptocarbon.xyz/v1/footprint
+      FLASK_DEBUG: 1
+      TFL_APP_ID: 38a27002
+      TFL_APP_KEY: 33bc54d78628e7522f0345e08ba3936b
     ports:
      - 8080:80
     tty: true
