@@ -7,6 +7,7 @@ services:
     restart: always
     environment:
       STAGE: TEST
+      TRIP_TO_CARBON_URL: https://api.triptocarbon.xyz/v1/footprint
     ports:
      - 8080:80
     tty: true

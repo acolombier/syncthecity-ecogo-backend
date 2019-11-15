@@ -4,29 +4,29 @@ from enum import Enum
 
 
 class ActivityType(Enum):
-    miles: str = 1
-    fuel: str = 2
+    miles = 1
+    fuel = 2
 
 
 class FuelType(Enum):
-    motorGasoline: str = 1
-    diesel: str = 2
-    aviationGasoline: str = 3
-    jetFuel: str = 4
+    motorGasoline = 1
+    diesel = 2
+    aviationGasoline = 3
+    jetFuel = 4
 
 
 class Mode(Enum):
-    dieselCar: str = 1
-    petrolCar: str = 2
-    anyCar: str = 3
-    taxi: str = 4
-    economyFlight: str = 5
-    businessFlight: str = 6
-    firstclassFlight: str = 7
-    anyFlight: str = 8
-    motorbike: str = 9
-    bus: str = 10
-    transitRail: str = 11
+    dieselCar = 1
+    petrolCar = 2
+    anyCar = 3
+    taxi = 4
+    economyFlight = 5
+    businessFlight = 6
+    firstclassFlight = 7
+    anyFlight = 8
+    motorbike = 9
+    bus = 10
+    transitRail = 11
 
 
 class CarbonFootprintService:
