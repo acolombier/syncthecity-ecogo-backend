@@ -1,0 +1,128 @@
+{
+  "arrivalDateTime": "2019-11-15T12:00:00",
+  "cost": 10000,
+  "duration": 240,
+  "startDateTime": "2019-11-15T16:36:00",
+  "steps": [
+      {
+          "arrivalDateTime": "2019-11-15T12:45:00",
+          "cost": 240,
+          "duration": 45,
+          "startDateTime": "2019-11-15T12:00:00",
+          "type": "localPublicTransport",
+          "stops": [
+              {
+                  "departurePoint": {
+                      "additionalProperties": [],
+                      "commonName": "King's Cross St. Pancras Underground Station",
+                      "icsCode": "1000129",
+                      "lat": 51.52990049989,
+                      "lon": -0.12398997808000001,
+                      "naptanId": "940GZZLUKSX",
+                      "placeType": "StopPoint",
+                      "platformName": ""
+                  },
+                  "arrivalPoint": {
+                      "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+                      "additionalProperties": [],
+                      "commonName": "Paris Gare du Nord",
+                      "icsCode": "1000138",
+                      "lat": 48.8814,
+                      "lon": 2.3575,
+                      "naptanId": "940GZZLULVT",
+                      "placeType": "StopPoint",
+                      "platformName": ""
+                  }
+              }
+          ]
+      },
+      {
+          "arrivalDateTime": "2019-11-15T15:45:00",
+          "cost": 95200,
+          "duration": 150,
+          "startDateTime": "2019-11-15T13:15:00",
+          "type": "intercountryTrain",
+          "stops": [
+              {
+                  "departurePoint": {
+                      "additionalProperties": [],
+                      "commonName": "King's Cross St. Pancras Underground Station",
+                      "icsCode": "1000129",
+                      "lat": 51.52990049989,
+                      "lon": -0.12398997808000001,
+                      "naptanId": "940GZZLUKSX",
+                      "placeType": "StopPoint",
+                      "platformName": ""
+                  },
+                  "arrivalPoint": {
+                      "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+                      "additionalProperties": [],
+                      "commonName": "Paris Gare du Nord",
+                      "icsCode": "1000138",
+                      "lat": 48.8814,
+                      "lon": 2.3575,
+                      "naptanId": "940GZZLULVT",
+                      "placeType": "StopPoint",
+                      "platformName": ""
+                  }
+              }
+          ]
+      },
+      {
+          "arrivalDateTime": "2019-11-15T16:36:00",
+          "cost": 240,
+          "duration": 36,
+          "startDateTime": "2019-11-15T16:00:00",
+          "type": "localPublicTransport",
+          "stops": [
+              {
+                  "departurePoint": {
+                      "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+                      "additionalProperties": [],
+                      "commonName": "Paris Gare du Nord",
+                      "icsCode": "1000138",
+                      "lat": 48.8814,
+                      "lon": 2.3575,
+                      "naptanId": "940GZZLULVT",
+                      "placeType": "StopPoint",
+                      "platformName": ""
+                  },
+                  "arrivalPoint": {
+                      "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+                      "additionalProperties": [],
+                      "commonName": "Cité Universitaire",
+                      "icsCode": "1000138",
+                      "lat": 48.8214,
+                      "lon": 2.3342,
+                      "naptanId": "940GZZLULVT",
+                      "placeType": "StopPoint",
+                      "platformName": ""
+                  }
+              },
+              {
+                  "departurePoint": {
+                      "additionalProperties": [],
+                      "commonName": "Cité Universitaire",
+                      "icsCode": "1000138",
+                      "lat": 48.8214,
+                      "lon": 2.3342,
+                      "naptanId": "940GZZLUKSX",
+                      "placeType": "StopPoint",
+                      "platformName": ""
+                  },
+                  "arrivalPoint": {
+                      "$type": "Tfl.Api.Presentation.Entities.StopPoint, Tfl.Api.Presentation.Entities",
+                      "additionalProperties": [],
+                      "commonName": "Porte d'Italie",
+                      "icsCode": "1000138",
+                      "lat": 48.8167,
+                      "lon": 2.3640,
+                      "naptanId": "940GZZLULVT",
+                      "placeType": "StopPoint",
+                      "platformName": ""
+                  }
+              }
+          ]
+      }
+  ]
+}

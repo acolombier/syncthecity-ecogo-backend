@@ -4,7 +4,8 @@ import random
 
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from search.SearchService import SearchService
+from search import SearchService
+from carbonfootprint import CarbonFootprintService
 
 import data as stub
 
@@ -19,6 +20,9 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 headers = {'Content-Type': 'application/json; charset=utf-8'}
 
+co2Service = CarbonFootprintService()
+searchService = SearchService(co2Service)
+
 
 @app.route('/', methods=['GET'])
 def home():
@@ -28,7 +32,6 @@ def home():
 @app.route('/search', methods=['POST'])
 def search():
     data = request.json
-    searchService = SearchService()
     if 'from' not in data or 'to' not in data:
         return jsonify(
             {
@@ -39,10 +42,9 @@ def search():
             }
         ), 400, headers
 
-    print(data)
     # Search for Options
     results = searchService.search(data['from']['lat'], data['from']['lon'], data['to']['lat'], data['to']['lon'])
-    return jsonify(results, 200, headers)
+    return jsonify(results), 200, headers
 
 
 @app.route('/ticket', methods=['POST'])
@@ -81,4 +83,4 @@ def search():
 
 if __name__ == '__main__':
     print('starting app with flask')
-    app.run(debug=True, host='127.0.0.1', port=8080)
+    app.run(debug=True, host='0.0.0.0', port=8080)
