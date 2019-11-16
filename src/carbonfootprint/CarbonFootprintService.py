@@ -29,13 +29,41 @@ class Mode(Enum):
     transitRail = 11
 
 
+FUEL_MAP = {
+    "bus": FuelType.diesel,
+    "plane": FuelType.jetFuel,
+    "coach": FuelType.diesel,
+}
+
+MODE_MAP = {
+    "bus": Mode.bus,
+    "plane": Mode.economyFlight,
+    "coach": Mode.bus,
+}
+
+def carbonSpecArgs(type):
+
+    return {'activityType': ActivityType.miles, 'fuelType': FUEL_MAP.get(type), 'mode': MODE_MAP.get(type)}
+
+
 class CarbonFootprintService:
     """
     A Service to retrieve the total carbon footprint value in kilograms
     """
     def __init__(self):
         self.url = TRIP_TO_CARBON_ENDPOINT
+    def __call__(self, *args, **kwargs):
+        return CarbonFootprint(self)
+
+
+class CarbonFootprint:
+    def __init__(self, service):
+        self.service = service
         self.steps = []
+        self.static_offset = 0.0
+
+    def add_static_step(self, distance: float, rate:float):
+        self.static_offset += distance * rate
 
     def add_step(self, activity: str, activityType: ActivityType, **kwargs):
         fuelType: FuelType = kwargs.get('fuelType', None)
@@ -52,10 +80,11 @@ class CarbonFootprintService:
         self.steps.append(query)
 
     def calculate_journey(self) -> float:
-        total: float = 0.0
+        total: float = self.static_offset
+        s = requests.Session()
         for query in self.steps:
             try:
-                r = requests.get(f'{self.url}{query}')
+                r = s.get(f'{self.service.url}{query}')
                 r.raise_for_status()
                 data = r.json()
                 total = total + float(data['carbonFootprint'])
